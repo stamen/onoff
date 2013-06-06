@@ -16,7 +16,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", function(req, res) {
   res.render("index", {
     app: process.env.APP,
-    url: process.env.S3_URL
+    url: process.env.URL
   });
 });
 
