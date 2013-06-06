@@ -1,7 +1,5 @@
 "use strict";
 
-var util = require("util");
-
 var express = require("express"),
     request = require("request"),
     app = express();
@@ -17,8 +15,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
   res.render("index", {
-    bucket: process.env.S3_BUCKET,
-    app: process.env.APP
+    app: process.env.APP,
+    url: process.env.S3_URL
   });
 });
 
@@ -30,7 +28,7 @@ app.post("/onoff", function(req, res) {
   });
 
   request.put({
-    url: util.format("http://s3.amazonaws.com/%s/%s.json", process.env.S3_BUCKET, process.env.APP),
+    url: process.env.S3_URL,
     aws: {
       key: process.env.AWS_ACCESS_KEY_ID,
       secret: process.env.AWS_SECRET_ACCESS_KEY

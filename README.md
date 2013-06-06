@@ -19,7 +19,7 @@ foreman start
 * `USERNAME`
 * `PASSWORD`
 * `APP`
-* `S3_BUCKET`
+* `S3_URL`
 * `AWS_ACCESS_KEY_ID`
 * `AWS_SECRET_ACCESS_KEY`
 
