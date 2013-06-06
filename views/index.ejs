@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<h1>On/Off</h1>
+<form action="/onoff" method="POST">
+  <label><input name="on" value="on" type="checkbox"> On</label><br>
+  <input type="submit" value="Go!">
+</form>
+<script type="text/javascript">
+d3.json("http://s3.amazonaws.com/<%= bucket %>/<%= app %>.json", function(err, data) {
+  if (err) {
+    console.log("Unknown status.");
+    return;
+  }
+
+  console.log("Data:", data);
+});
+</script>
+</body>
+</html>
