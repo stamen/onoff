@@ -5,7 +5,7 @@
 <body>
 <h1>On/Off&mdash;<%= app %></h1>
 <form action="/onoff" method="POST">
-  <label><input name="on" value="on" type="checkbox"> On</label><br>
+  <label><input id="on" name="on" value="on" type="checkbox"> On</label><br>
   <input type="submit" value="Go!">
 </form>
 <script type="text/javascript">
@@ -16,6 +16,15 @@ d3.json("<%= url %>", function(err, data) {
   }
 
   console.log("Data:", data);
+
+  switch (data.status) {
+    case "on":
+      d3.select("#on").property("checked", true);
+      break;
+
+    default:
+      d3.select("#on").property("checked", false);
+  }
 });
 </script>
 </body>
